@@ -10,7 +10,7 @@ fonte = "https://github.com/alura-cursos/imersao-dados-2-2020/blob/master/MICROD
 #lê o arquivo csv e define este valor para a variavel dados
 dados = pd.read_csv(fonte)
 
-#conta a quantidade de idades, ou seja, o tamanho total de nossa amostra
+#conta a quantidade de idades, ou seja, o tamanho total da amostra
 numero = len(dados["NU_IDADE"])
 
 #Divide a quantidade de participantes de cada idade pelo total e multiplica por 100 para apresentar o número em porcentagem
