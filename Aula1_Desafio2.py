@@ -10,7 +10,7 @@ fonte = "https://github.com/alura-cursos/imersao-dados-2-2020/blob/master/MICROD
 dados = pd.read_csv(fonte)
 
 #Cria uma query para cruzar a informação da coluna de idade com a coluna de estado
-coluna = dados.query("NU_IDADE == 13")["SG_UF_RESIDENCIA"]
+coluna = dados.query("NU_IDADE <= 14")["SG_UF_RESIDENCIA"].value_counts()
 
 #mostra em tela a tabela
 print(coluna)
