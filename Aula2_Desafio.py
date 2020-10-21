@@ -34,3 +34,19 @@ proporcao = len(m)/len(zero)
 print(proporcao * 100)
 
 print(meio)
+
+import pyodbc
+
+def retornar_conexao_sql():
+    server = "LAPTOP-KRC12LTO"
+    database = "SUCOS_VENDAS"
+    #username = "aula_mongodb"
+    #password = "abc123"
+    #string_conexao = 'Driver={SQL Server Native Client 11.0};Server='+server+';Database='+database+';UID='+username+';PWD='+ password
+    string_conexao = 'Driver={SQL Server Native Client 11.0};Server='+server+';Database='+database+';Trusted_Connection=yes;'
+    conexao = pyodbc.connect(string_conexao)
+    return conexao.cursor()
+cursor = retornar_conexao_sql
+cursor.execute("select*From [SUCOS_VENDAS].[dbo].[TABELA DE CLIENTES]")
+row = cursor.fetchone()
+print(row)
