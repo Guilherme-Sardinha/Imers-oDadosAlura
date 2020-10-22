@@ -45,8 +45,10 @@ def retornar_conexao_sql():
     #string_conexao = 'Driver={SQL Server Native Client 11.0};Server='+server+';Database='+database+';UID='+username+';PWD='+ password
     string_conexao = 'Driver={SQL Server Native Client 11.0};Server='+server+';Database='+database+';Trusted_Connection=yes;'
     conexao = pyodbc.connect(string_conexao)
+
     return conexao.cursor()
-cursor = retornar_conexao_sql
-cursor.execute("select*From [SUCOS_VENDAS].[dbo].[TABELA DE CLIENTES]")
+
+cursor = retornar_conexao_sql()
+cursor.execute("select*From [SUCOS_VENDAS].[dbo].[MICRODADOS_ENEM_2019]")
 row = cursor.fetchone()
 print(row)
