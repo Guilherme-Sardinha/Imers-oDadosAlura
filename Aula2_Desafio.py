@@ -35,11 +35,13 @@ print(proporcao * 100)
 
 print(meio)
 
+
+#conectando o python ao SQL
 import pyodbc
 
 def retornar_conexao_sql():
-    server = "LAPTOP-KRC12LTO"
-    database = "SUCOS_VENDAS"
+    server = "DESKTOP-NTJV46D"
+    database = "ENEM_2019"
     #username = "aula_mongodb"
     #password = "abc123"
     #string_conexao = 'Driver={SQL Server Native Client 11.0};Server='+server+';Database='+database+';UID='+username+';PWD='+ password
@@ -49,6 +51,6 @@ def retornar_conexao_sql():
     return conexao.cursor()
 
 cursor = retornar_conexao_sql()
-cursor.execute("select*From [SUCOS_VENDAS].[dbo].[MICRODADOS_ENEM_2019]")
+cursor.execute("select*From [ENEM_2019].[dbo].[MICRODADOS_ENEM_2019]")
 row = cursor.fetchone()
 print(row)
