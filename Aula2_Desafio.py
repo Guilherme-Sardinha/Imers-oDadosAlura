@@ -54,3 +54,5 @@ cursor = retornar_conexao_sql()
 cursor.execute("select*From [ENEM_2019].[dbo].[MICRODADOS_ENEM_2019]")
 row = cursor.fetchone()
 print(row)
+
+sns.histplot(zero, x = "NU_NOTA_TOTAL")
