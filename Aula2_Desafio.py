@@ -25,6 +25,8 @@ meio = pd.DataFrame(m, columns =['SG_UF_RESIDENCIA','SG_UF_PROVA','NU_NOTA_TOTAL
 
 zero = dados.query('NU_NOTA_TOTAL==0')
 
+nzero = dados.query('NU_NOTA_TOTAL!=0')
+
 Renda_Organizada = dados["Q006"].unique()
 
 Renda_Organizada.sort()
@@ -55,4 +57,20 @@ cursor.execute("select*From [ENEM_2019].[dbo].[MICRODADOS_ENEM_2019]")
 row = cursor.fetchone()
 print(row)
 
-sns.histplot(zero, x = "NU_NOTA_TOTAL")
+#gera o histograma para as notas diferentes de zero e coloca no eixo x o valor total das notas
+sns.histplot(nzero, x = "NU_NOTA_TOTAL")
+plt.show()
+
+#gera o histograma com as notas de matematica
+sns.histplot(nzero, x = "NU_NOTA_MT")
+plt.show()
+
+#gera o histograma com as notas de linguagem e codigos
+sns.histplot(nzero, x = "NU_NOTA_LC")
+plt.show()
+
+#gera o histograma com as notas totais e com o acesso a internet ou não dos participantes
+sns.histplot(nzero, x = "NU_NOTA_TOTAL", hue = "Q025", kde = True) #a função kde adiciona uma linha de contorno para meu histograma
+#o eixo x diz respeito a quantidade de alunos com acesso a internet ou não, onde o gráfico azul expressa a curva para os alunos com internet e o laranja sem acesso a internet
+#o eixo Y mostra a nota total desses alunos
+plt.show()
